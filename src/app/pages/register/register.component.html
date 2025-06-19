@@ -1,1 +1,70 @@
-<p>register works!</p>
+<div class="login-wrapper">
+  <div class="register-container">
+    <div class="left-panel">
+      <img class="logo" src="Register-Logo.png" alt="Register Logo" />
+      <span class="left-panel-text">ONLINE BOOK SHOPPING</span>
+    </div>
+    <div class="right-panel">
+      <mat-card class="register-card">
+        <div class="tab-buttons">
+          <button
+            [ngClass]="{ active: selectedTab === 'login' }"
+            (click)="selectedTab = 'login'"
+            class="login-button"
+          >
+            LOGIN
+          </button>
+          <button
+            [ngClass]="{ active: selectedTab === 'signup' }"
+            (click)="selectedTab = 'signup'"
+            class="signup-button"
+          >
+            SIGNUP
+          </button>
+        </div>
+
+        <!-- LOGIN SECTION  -->
+        <div *ngIf="isLogin">
+          <br /><label for="Email">Email Id</label><br />
+          <mat-form-field appearance="outline">
+            <input
+              matInput
+              placeholder=" "
+              id="email"
+              formControlName="email"
+              type="email"
+            />
+          </mat-form-field>
+          <br /><label for="Password">Password</label><br />
+          <mat-form-field appearance="outline">
+            <input
+              matInput
+              placeholder=" "
+              id="password"
+              formControlName="password"
+              [type]="showPassword ? 'text' : 'password'"
+            />
+            <mat-icon
+              (click)="showPassword = !showPassword"
+              style="cursor: pointer"
+              matSuffix
+            >
+              {{ showPassword ? "visibility" : "visibility_off" }}</mat-icon
+            >
+            <mat-hint align="end">Forgot Password?</mat-hint>
+          </mat-form-field>
+          <button class="red-login">Login</button>
+          <div class="or-divider">
+            <div class="line"></div>
+            <span>OR</span>
+            <div class="line"></div>
+          </div>
+          <div class="social-buttons">
+            <button class="facebook">Facebook</button>
+            <button class="google">Google</button>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</div>
