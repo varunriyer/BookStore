@@ -22,6 +22,14 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export class RegisterComponent {
   selectedTab: 'login' | 'signup' = 'login';
-  isLogin: boolean = true;
+
   showPassword = false;
+
+  get isLogin(): boolean {
+    return this.selectedTab === 'login';
+  }
+
+  get isSignup(): boolean {
+    return this.selectedTab === 'signup';
+  }
 }

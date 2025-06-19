@@ -25,44 +25,99 @@
 
         <!-- LOGIN SECTION  -->
         <div *ngIf="isLogin">
-          <br /><label for="Email">Email Id</label><br />
-          <mat-form-field appearance="outline">
-            <input
-              matInput
-              placeholder=" "
-              id="email"
-              formControlName="email"
-              type="email"
-            />
-          </mat-form-field>
-          <br /><label for="Password">Password</label><br />
-          <mat-form-field appearance="outline">
-            <input
-              matInput
-              placeholder=" "
-              id="password"
-              formControlName="password"
-              [type]="showPassword ? 'text' : 'password'"
-            />
-            <mat-icon
-              (click)="showPassword = !showPassword"
-              style="cursor: pointer"
-              matSuffix
-            >
-              {{ showPassword ? "visibility" : "visibility_off" }}</mat-icon
-            >
-            <mat-hint align="end">Forgot Password?</mat-hint>
-          </mat-form-field>
-          <button class="red-login">Login</button>
-          <div class="or-divider">
-            <div class="line"></div>
-            <span>OR</span>
-            <div class="line"></div>
-          </div>
-          <div class="social-buttons">
-            <button class="facebook">Facebook</button>
-            <button class="google">Google</button>
-          </div>
+          <form>
+            <br /><label for="Email">Email Id</label><br />
+            <mat-form-field appearance="outline">
+              <input
+                matInput
+                placeholder=" "
+                id="email"
+                formControlName="email"
+                type="email"
+              />
+            </mat-form-field>
+            <br /><label for="Password">Password</label><br />
+            <mat-form-field appearance="outline">
+              <input
+                matInput
+                placeholder=" "
+                id="password"
+                formControlName="password"
+                [type]="showPassword ? 'text' : 'password'"
+              />
+              <mat-icon
+                (click)="showPassword = !showPassword"
+                style="cursor: pointer"
+                matSuffix
+              >
+                {{ showPassword ? "visibility" : "visibility_off" }}</mat-icon
+              >
+              <mat-hint align="end">Forgot Password?</mat-hint>
+            </mat-form-field>
+            <button class="red-login">Login</button>
+            <br /><br />
+            <div class="or-divider">
+              <div class="line"></div>
+              <span>OR</span>
+              <div class="line"></div>
+            </div>
+            <br />
+            <div class="social-buttons">
+              <button class="facebook">Facebook</button>
+              <button class="google">Google</button>
+            </div>
+          </form>
+        </div>
+        <!-- SIGNUP SECTION -->
+        <div *ngIf="isSignup">
+          <form>
+            <br /><label for="Name">Full Name</label><br />
+            <mat-form-field appearance="outline">
+              <input
+                matInput
+                placeholder=" "
+                id="Name"
+                formControlName="name"
+                type="text"
+              />
+            </mat-form-field>
+            <br /><label>Email Id</label><br />
+            <mat-form-field appearance="outline">
+              <input
+                matInput
+                placeholder=" "
+                formControlName="email"
+                type="email"
+              />
+            </mat-form-field>
+            <br /><label for="Password">Password</label><br />
+            <mat-form-field appearance="outline">
+              <input
+                matInput
+                placeholder=" "
+                id="password"
+                formControlName="password"
+                [type]="showPassword ? 'text' : 'password'"
+              />
+              <mat-icon
+                (click)="showPassword = !showPassword"
+                style="cursor: pointer"
+                matSuffix
+              >
+                {{ showPassword ? "visibility" : "visibility_off" }}</mat-icon
+              >
+            </mat-form-field>
+            <br /><label>Mobile Number</label><br />
+            <mat-form-field appearance="outline">
+              <input
+                matInput
+                placeholder=" "
+                formControlName="mobile"
+                type="tel"
+              />
+            </mat-form-field>
+            <button class="red-signup">Signup</button>
+          </form>
         </div>
       </mat-card>
     </div>
