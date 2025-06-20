@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { BookCardComponent } from '../book-card/book-card.component';
+import { BookCardComponent } from '../../components/book-card/book-card.component';
 import { CommonModule } from '@angular/common';
-import { FooterComponent } from '../footer/footer.component';
+import { FooterComponent } from '../../components/footer/footer.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 
 @Component({
