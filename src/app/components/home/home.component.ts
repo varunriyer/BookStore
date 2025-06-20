@@ -2,10 +2,16 @@ import { Component } from '@angular/core';
 import { BookCardComponent } from '../book-card/book-card.component';
 import { CommonModule } from '@angular/common';
 import { FooterComponent } from '../footer/footer.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-home',
-  imports: [BookCardComponent, CommonModule, FooterComponent],
+  imports: [
+    BookCardComponent,
+    CommonModule,
+    FooterComponent,
+    MatPaginatorModule,
+  ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
