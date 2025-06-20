@@ -25,7 +25,7 @@
 
         <!-- LOGIN SECTION  -->
         <div *ngIf="isLogin">
-          <form>
+          <form [formGroup]="loginForm">
             <br /><label for="Email">Email Id</label><br />
             <mat-form-field appearance="outline">
               <input
@@ -35,6 +35,19 @@
                 formControlName="email"
                 type="email"
               />
+              <mat-error
+                *ngIf="
+                  emailControl?.errors &&
+                  (emailControl?.touched || emailControl?.dirty)
+                "
+              >
+                <span *ngIf="emailControl?.errors?.['required']"
+                  >Email is required</span
+                >
+                <span *ngIf="emailControl?.errors?.['email']"
+                  >Enter a valid email address
+                </span>
+              </mat-error>
             </mat-form-field>
             <br /><label for="Password">Password</label><br />
             <mat-form-field appearance="outline">
@@ -52,6 +65,12 @@
               >
                 {{ showPassword ? "visibility" : "visibility_off" }}</mat-icon
               >
+
+              <mat-error
+                *ngIf="passwordControl?.touched && passwordControl?.invalid"
+              >
+                Invalid Password
+              </mat-error>
               <mat-hint align="end">Forgot Password?</mat-hint>
             </mat-form-field>
             <button class="red-login">Login</button>
@@ -70,16 +89,28 @@
         </div>
         <!-- SIGNUP SECTION -->
         <div *ngIf="isSignup">
-          <form>
+          <form [formGroup]="signUpForm">
             <br /><label for="Name">Full Name</label><br />
             <mat-form-field appearance="outline">
               <input
                 matInput
-                placeholder=" "
+                placeholder="Min. 3 letters "
                 id="Name"
                 formControlName="name"
                 type="text"
               />
+
+              <mat-error *ngIf="nameControl?.touched && nameControl?.invalid">
+                <span *ngIf="nameControl?.errors?.['required']"
+                  >Name is required</span
+                >
+                <span *ngIf="nameControl?.errors?.['minlength']"
+                  >Name must be at least 3 characters</span
+                >
+                <span *ngIf="nameControl?.errors?.['pattern']"
+                  >Only letters and spaces allowed</span
+                >
+              </mat-error>
             </mat-form-field>
             <br /><label>Email Id</label><br />
             <mat-form-field appearance="outline">
@@ -89,6 +120,19 @@
                 formControlName="email"
                 type="email"
               />
+              <mat-error
+                *ngIf="
+                  emailControl?.errors &&
+                  (emailControl?.touched || emailControl?.dirty)
+                "
+              >
+                <span *ngIf="emailControl?.errors?.['required']"
+                  >Email is required</span
+                >
+                <span *ngIf="emailControl?.errors?.['email']"
+                  >Enter a valid email address
+                </span>
+              </mat-error>
             </mat-form-field>
             <br /><label for="Password">Password</label><br />
             <mat-form-field appearance="outline">
@@ -106,6 +150,19 @@
               >
                 {{ showPassword ? "visibility" : "visibility_off" }}</mat-icon
               >
+              <mat-error
+                *ngIf="passwordControl?.touched && passwordControl?.invalid"
+              >
+                <span *ngIf="passwordControl?.errors?.['required']"
+                  >Password is required</span
+                >
+                <span *ngIf="passwordControl?.errors?.['minlength']"
+                  >Password must be at least 8 characters</span
+                >
+                <span *ngIf="passwordControl?.errors?.['pattern']"
+                  >Min 1 letter, number & special character</span
+                >
+              </mat-error>
             </mat-form-field>
             <br /><label>Mobile Number</label><br />
             <mat-form-field appearance="outline">
@@ -115,6 +172,17 @@
                 formControlName="mobile"
                 type="tel"
               />
+              <mat-error
+                *ngIf="mobileControl?.touched && mobileControl?.invalid"
+              >
+                <span *ngIf="mobileControl?.errors?.['required']"
+                  >Mobile No. is required</span
+                >
+
+                <span *ngIf="mobileControl?.errors?.['pattern']"
+                  >Enter 10 digit number</span
+                >
+              </mat-error>
             </mat-form-field>
             <button class="red-signup">Signup</button>
           </form>
