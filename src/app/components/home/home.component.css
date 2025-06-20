@@ -2,6 +2,11 @@
   padding: 24px 172px;
 }
 
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
 .books-text {
   top: 82px;
   left: 174px;

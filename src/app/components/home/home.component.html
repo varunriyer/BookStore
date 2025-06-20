@@ -3,5 +3,7 @@
     <span class="books-text">Books</span
     ><span class="items-number"> (128 items)</span></span
   >
-  <app-book-card></app-book-card>
+  <div class="book-grid">
+    <app-book-card *ngFor="let book of bookList"></app-book-card>
+  </div>
 </div>
