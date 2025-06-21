@@ -73,7 +73,7 @@
               </mat-error>
               <mat-hint align="end">Forgot Password?</mat-hint>
             </mat-form-field>
-            <button class="red-login">Login</button>
+            <button class="red-login" (click)="onLogin()">Login</button>
             <br /><br />
             <div class="or-divider">
               <div class="line"></div>
@@ -96,7 +96,7 @@
                 matInput
                 placeholder="Min. 3 letters "
                 id="Name"
-                formControlName="name"
+                formControlName="fullName"
                 type="text"
               />
 
@@ -169,7 +169,7 @@
               <input
                 matInput
                 placeholder=" "
-                formControlName="mobile"
+                formControlName="phone"
                 type="tel"
               />
               <mat-error
@@ -184,7 +184,7 @@
                 >
               </mat-error>
             </mat-form-field>
-            <button class="red-signup">Signup</button>
+            <button class="red-signup" (click)="onSignUp()">Signup</button>
           </form>
         </div>
       </mat-card>
