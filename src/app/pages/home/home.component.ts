@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BookCardComponent } from '../../components/book-card/book-card.component';
 import { CommonModule } from '@angular/common';
 
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { BookService } from '../../service/book_service/book.service';
 
 @Component({
   selector: 'app-home',
@@ -10,6 +11,20 @@ import { MatPaginatorModule } from '@angular/material/paginator';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
-export class HomeComponent {
-  bookList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+export class HomeComponent implements OnInit {
+  books: any[] = [];
+
+  constructor(private bookService: BookService) {}
+
+  ngOnInit(): void {
+    this.bookService.getAllBooks().subscribe({
+      next: (res: any) => {
+        this.books = res.result;
+        console.log('Books:', this.books);
+      },
+      error: (err) => {
+        console.error('Failed to fetch books', err);
+      },
+    });
+  }
 }
