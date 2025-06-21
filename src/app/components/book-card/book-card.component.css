@@ -18,6 +18,7 @@ mat-card img {
   letter-spacing: 0px;
   color: #0a0102;
   opacity: 1;
+  text-transform: capitalize;
 }
 
 .book-author {
@@ -26,6 +27,7 @@ mat-card img {
   letter-spacing: 0px;
   color: #878787;
   opacity: 1;
+  text-transform: capitalize;
 }
 
 .rating-box {
