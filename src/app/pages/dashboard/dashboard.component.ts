@@ -18,10 +18,11 @@ import { CommonModule } from '@angular/common';
 export class DashboardComponent {
   hideFooter: boolean = false;
   constructor(private router: Router, private route: ActivatedRoute) {
+    // Router is used to listen to route changes; ActivatedRoute is used when we want dynamic parameters
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.hideFooter = event.url.includes('forgot-password');
       }
     });
-  } // Router is used to listen to route changes; ActivatedRoute is used when we want dynamic parameters
+  }
 }
