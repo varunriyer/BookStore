@@ -5,8 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class HttpService {
-  private baseURL =
-    'https://bookstore.incubation.bridgelabz.com/bookstore_app/';
+  private baseURL = 'https://bookstore.incubation.bridgelabz.com/';
   constructor(private http: HttpClient) {}
 
   getHeader() {
